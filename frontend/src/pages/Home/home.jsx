@@ -89,7 +89,7 @@ function Home() {
       <Header />
       {/* Banner */}
       <section className={styles.banner}>
-        <h1 className={styles.bannerTitle}>TechPaw</h1>
+        <h1 className={styles.bannerTitle}>FamilyPet</h1>
         <p className={styles.bannerSubtitle}>
           Encontre seu melhor amigo de quatro patas aqui!
         </p>
