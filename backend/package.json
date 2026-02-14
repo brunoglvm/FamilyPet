@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon --legacy-watch src/server.js",
+    "dev": "node --watch src/server.js",
     "start": "node src/server.js"
   },
   "author": "",
@@ -22,7 +22,6 @@
   },
   "devDependencies": {
     "dotenv": "^16.4.5",
-    "nodemon": "^3.1.7",
     "prisma": "^6.2.1"
   }
 }
