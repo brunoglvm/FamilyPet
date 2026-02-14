@@ -2,8 +2,6 @@
 
 ## **CURSO**: Desenvolvimento Full Stack Básico - Escola Atlântico Avanti
 
----
-
 ## 📋 **Descrição**
 
 Este projeto consiste no desenvolvimento de um sistema web para otimizar e modernizar o processo de adoção de animais em um abrigo. A aplicação facilita:
@@ -14,8 +12,6 @@ Este projeto consiste no desenvolvimento de um sistema web para otimizar e moder
 ### 🎯 **Objetivo**
 
 Tornar o processo de adoção mais **eficiente**, **acessível** e **organizado**.
-
----
 
 ## 🚀 **Funcionalidades**
 
@@ -51,9 +47,15 @@ Tornar o processo de adoção mais **eficiente**, **acessível** e **organizado*
   - Idade
   - Status (disponível/adotado)
 
----
-
 ## ⚙️ **Requisitos Técnicos**
+
+### Banco de Dados
+
+- **Tecnologia**: `PostgreSQL` (banco de dados relacional)
+- **Estrutura** do banco de dados:
+  - **Pets**: Tabela que armazena informações dos pets (id, nome, espécie, idade, descrição, status).
+  - **Adotantes**: Tabela que armazena informações dos adotantes (id, nome, e-mail, telefone, endereço).
+  - **Adoções**: Tabela que registra as adoções realizadas (id, pet_id, adotante_id, data_adocao).
 
 ### Backend
 
@@ -63,14 +65,6 @@ Tornar o processo de adoção mais **eficiente**, **acessível** e **organizado*
 - **Operações CRUD**:
   - Criação, leitura, atualização e exclusão de informações sobre pets e adotantes.
 
-### Banco de Dados
-
-- **Tecnologia**: `PostgreSQL` ou `MySQL` (banco de dados relacional)
-- **Estrutura** do banco de dados:
-  - **Pets**: Tabela que armazena informações dos pets (id, nome, espécie, idade, descrição, status).
-  - **Adotantes**: Tabela que armazena informações dos adotantes (id, nome, e-mail, telefone, endereço).
-  - **Adoções**: Tabela que registra as adoções realizadas (id, pet_id, adotante_id, data_adocao).
-
 ### Frontend
 
 - **Tecnologia**: `ReactJS`
@@ -79,3 +73,7 @@ Tornar o processo de adoção mais **eficiente**, **acessível** e **organizado*
   - Formulários para cadastrar pets e adotantes.
   - Histórico de adoções e filtros.
   - **Landing page** para apresentação do sistema e dos benefícios do abrigo.
+
+<!--
+
+## 🐳 **Desenvolvimento com Docker** -->
