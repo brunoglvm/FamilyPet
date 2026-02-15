@@ -11,17 +11,19 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^6.2.1",
+    "@prisma/adapter-pg": "^7.4.0",
+    "@prisma/client": "^7.4.0",
     "cors": "^2.8.5",
     "express": "^4.21.1",
     "helmet": "^8.0.0",
     "joi": "^17.13.3",
+    "pg": "^8.11.5",
     "swagger-jsdoc": "^6.2.8",
     "swagger-themes": "^1.4.3",
     "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
     "dotenv": "^16.4.5",
-    "prisma": "^6.2.1"
+    "prisma": "^7.4.0"
   }
 }
