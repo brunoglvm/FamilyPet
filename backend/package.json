@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "node --watch src/server.js",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "db:seed": "prisma db seed"
   },
   "author": "",
   "license": "ISC",
@@ -25,5 +26,8 @@
   "devDependencies": {
     "dotenv": "^16.4.5",
     "prisma": "^7.4.0"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
   }
 }
