@@ -74,10 +74,6 @@ Tornar o processo de adoção mais **eficiente**, **acessível** e **organizado*
   - Histórico de adoções e filtros.
   - **Landing page** para apresentação do sistema e dos benefícios do abrigo.
 
-<!--
-
-## 🐳 **Desenvolvimento com Docker** -->
-
 ## 💻 **Como rodar em desenvolvimento**
 
 Você pode rodar o projeto de duas formas: localmente (sem Docker) ou com Docker Compose.
