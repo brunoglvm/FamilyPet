@@ -1,26 +1,47 @@
+.page {
+  min-height: 100vh;
+}
+
+.mainContent {
+  padding-top: 0;
+}
+
+.porQueAdotar,
+.animaisDisponiveis,
+.informacoesEducativas,
+.contatoInner {
+  width: min(1200px, 100% - 2.5rem);
+  margin-inline: auto;
+}
+
 .banner {
-  height: 480px;
+  min-height: 480px;
   background-color: var(--primary-color);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: var(--light-color);
-  padding-top: 4rem;
+  padding: calc(clamp(2rem, 4vw, 3rem) + 4.5rem) 1.25rem clamp(2rem, 4vw, 3rem);
 }
 
 .bannerTitle {
-  font-size: 4rem;
+  font-size: clamp(2.4rem, 7vw, 4rem);
   font-weight: var(--font-weight-bd);
   margin-bottom: 1.2rem;
 }
 
 .bannerSubtitle {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
   line-height: 1.4rem;
 }
 
-/* Por Que Adotar */
+.bannerImage {
+  width: min(420px, 100%);
+  height: auto;
+  margin-top: 1.2rem;
+}
+
 .porQueAdotar {
   margin-top: 3.5rem;
 }
@@ -31,42 +52,49 @@
 }
 
 .cards {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
 }
 
 .card {
-  max-width: 600px;
   background-color: var(--light-color);
   border: 2px solid var(--highlight-color);
   box-shadow: 0 4px 6px var(--shadow-color);
   border-radius: 8px;
   text-align: center;
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
 .card h3 {
   color: var(--primary-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .card ul li {
-  font-size: 1.2rem;
-  line-height: 2rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 0.45rem;
+  font-size: 1.05rem;
+  line-height: 1.6rem;
   font-family: var(--font-family-secondary);
   font-weight: var(--font-weight-reg);
   color: var(--dark-color);
 }
 
-.listItemIcon {
-  color: var(--secondary-color);
-  margin-right: 0.5rem;
+.card ul li + li {
+  margin-top: 0.65rem;
 }
 
-/* Animais Disponíveis */
+.listItemIcon {
+  color: var(--secondary-color);
+  margin-top: 0.3rem;
+}
+
 .animaisDisponiveis {
-  margin: 3.5rem 0;
-  padding: 0 1.25rem;
+  margin: 3.5rem auto;
 }
 
 .animaisDisponiveis h2 {
@@ -81,52 +109,31 @@
   justify-content: center;
 }
 
-.animalCard {
-  background-color: var(--card-color);
-  border-radius: 8px;
-  box-shadow: 0 4px 8px var(--shadow-color);
-  overflow: hidden;
-  width: calc(20% - 20px);
-  text-align: center;
-  padding-bottom: 1.125rem;
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: translateY(-5px);
-  }
-}
-
-.animalCard img {
-  width: 100%;
-  height: auto;
-}
-
-.animalCard h3 {
-  font-weight: var(--font-weight-md);
-  margin: 0.625rem 0;
-}
-
-/* Informações Educativas */
 .informacoesEducativas {
   background-color: var(--primary-color);
-  border-radius: 8px 8px 0 0;
-  padding: 2rem;
+  border-radius: 0;
+  padding: clamp(2rem, 5vw, 3rem);
+  width: 100%;
 }
 
 .informacoesEducativas h2 {
   color: var(--light-color);
   margin-bottom: 2rem;
+  width: min(1200px, 100% - 2.5rem);
+  margin-inline: auto;
 }
 
 .educacaoGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  width: min(1200px, 100% - 2.5rem);
+  margin-inline: auto;
 }
 
 .educacaoCard {
   background-color: var(--light-color);
-  padding: 1rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
   text-align: center;
   border: 2px solid var(--highlight-color);
   border-radius: 8px;
@@ -135,60 +142,87 @@
 
 .educacaoCard h3 {
   color: var(--dark-color);
-  margin: 0.5rem 0;
+  margin: 0.75rem 0;
+}
+
+.educacaoCard p {
+  text-align: left;
+  line-height: 1.45rem;
 }
 
 .educacaoCard img {
-  width: 60%;
-  height: 20rem;
+  width: min(240px, 100%);
+  height: clamp(170px, 26vw, 260px);
   object-fit: contain;
 }
 
-/* Contato */
 .contato {
   background-color: var(--secondary-color);
   color: var(--light-color);
   text-align: center;
-  border-radius: 0 0 8px 8px;
-  padding: 2rem;
+  border-radius: 0;
+  padding: clamp(2rem, 5vw, 3rem);
+  width: 100%;
 }
 
 .contato h2 {
   font-weight: var(--font-weight-md);
   color: var(--light-color);
-  text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .formContato {
   display: flex;
   flex-direction: column;
-  max-width: 500px;
+  width: min(560px, 100%);
   margin: 0 auto;
 }
 
 .formContato input {
   width: 100%;
-  height: 44px;
+  min-height: 44px;
   padding: 0.875rem;
   margin-bottom: 1.125rem;
 }
 
 .formContato textarea {
   width: 100%;
-  height: 88px;
+  min-height: 104px;
   padding: 0.875rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 @media screen and (max-width: 768px) {
+  .mainContent {
+    padding-top: 0;
+  }
+
+  .porQueAdotar,
+  .animaisDisponiveis,
+  .contatoInner {
+    width: min(1200px, 100% - 2rem);
+  }
+
+  .banner {
+    min-height: 420px;
+    padding-top: calc(clamp(2rem, 4vw, 3rem) + 5rem);
+  }
+
+  .informacoesEducativas h2,
   .educacaoGrid {
-    margin-left: 2rem;
-    grid-template-columns: 1fr;
+    width: min(1200px, 100% - 2rem);
   }
 }
 
 @media screen and (max-width: 480px) {
+  .mainContent {
+    padding-top: 0;
+  }
+
+  .card {
+    padding: 1.2rem;
+  }
+
   .card h3,
   .educacaoCard h3 {
     font-size: 1.3rem;
@@ -196,20 +230,6 @@
 
   .card ul li,
   .educacaoCard p {
-    font-size: 1rem;
-  }
-
-  .cards,
-  .animaisGrid,
-  .educacaoGrid {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card,
-  .animalCard,
-  .educacaoCard {
-    width: 90%;
-    margin-bottom: 1rem;
+    font-size: 0.95rem;
   }
 }

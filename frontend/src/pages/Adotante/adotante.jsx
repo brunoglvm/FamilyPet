@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./adotante.module.css";
 
 import cachorro from "@/assets/cachorro.png";

@@ -1,38 +1,124 @@
 .header {
   background-color: var(--primary-color);
   box-shadow: 0 4px 6px var(--shadow-color);
-  padding: 1.25rem 0;
+  padding: 1rem;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
 }
 
-.header nav ul {
+.nav {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+}
+
+.navList {
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
   justify-content: center;
   margin: 0;
   padding: 0;
 }
 
-.header nav ul li {
-  margin: 0 1.5rem;
+.navList li {
+  margin: 0;
 }
 
-.header nav a {
-  font-size: 1.125rem;
+.navList a,
+.mobileQuickLink,
+.mobileNavList a {
+  font-size: 1rem;
   color: var(--light-color);
-  transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease;
   padding-bottom: 0.2rem;
+}
 
-  &:hover {
-    color: var(--secondary-color);
-  }
+.navList a:hover,
+.mobileQuickLink:hover,
+.mobileNavList a:hover {
+  color: var(--secondary-color);
+}
+
+.mobileTopBar,
+.mobileNavList {
+  display: none;
 }
 
 @media screen and (max-width: 768px) {
-  .header nav ul {
-    flex-direction: column;
+  .header {
+    padding: 0.75rem;
+  }
+
+  .navList {
+    display: none;
+  }
+
+  .mobileTopBar {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
     align-items: center;
+    gap: 0.35rem;
+  }
+
+  .mobileQuickLink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 8px;
+    padding: 0.55rem 0.45rem;
+    font-size: 0.92rem;
+    line-height: 1;
+  }
+
+  .menuToggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: transparent;
+    color: var(--light-color);
+    border-radius: 8px;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.92rem;
+    line-height: 1;
+    font-family: var(--font-family-secondary);
+    font-weight: var(--font-weight-sb);
+    cursor: pointer;
+  }
+
+  .menuToggle:hover {
+    background-color: transparent;
+  }
+
+  .mobileNavList {
+    margin-top: 0.5rem;
+    display: none;
+    padding: 0.15rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .mobileNavListOpen {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .mobileNavList a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.55rem 0.25rem;
+    font-size: 0.92rem;
+  }
+
+  .mobileQuickLink:hover,
+  .mobileNavList a:hover {
+    color: var(--light-color);
   }
 }

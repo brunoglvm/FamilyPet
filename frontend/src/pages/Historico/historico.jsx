@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./historico.module.css";
 
 import dogImage from "@/assets/card/cachorro.jpg";
