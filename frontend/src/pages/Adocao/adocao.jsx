@@ -2,10 +2,18 @@ import { useState, useEffect } from "react";
 import styles from "./adocao.module.css";
 
 import { Header } from "@/components/Header/header";
+import { Dropdown } from "@/components/Dropdown/dropdown";
 import { petsData } from "@/data";
 
-const buscarPets = async () => {
-  return petsData;
+const buscarPets = async (filters) => {
+  return petsData.filter((pet) => {
+    const matchPorte = !filters.porte || pet.porte === filters.porte;
+    const matchIdade =
+      !filters.idade || pet.idade === Number.parseInt(filters.idade, 10);
+    const matchEspecie = !filters.especie || pet.especie === filters.especie;
+
+    return matchPorte && matchIdade && matchEspecie;
+  });
 };
 
 function Adocao() {
@@ -34,75 +42,89 @@ function Adocao() {
     }));
   };
 
+  const handleDropdownChange = (name, value) => {
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [name]: value,
+    }));
+  };
+
   return (
-    <div>
+    <div className={styles.page}>
       <Header />
-      {/* Filtros */}
-      <div className={styles.filtroContainer}>
-        <h3>Filtrar Pets</h3>
-        <form>
-          <label>
-            Porte:
-            <select
-              name="porte"
-              value={filters.porte}
-              onChange={handleFilterChange}
-            >
-              <option value="">Selecione</option>
-              <option value="Pequeno">Pequeno</option>
-              <option value="Médio">Médio</option>
-              <option value="Grande">Grande</option>
-            </select>
-          </label>
+      <main className={styles.mainContent}>
+        <div className={styles.contentGrid}>
+          <aside className={styles.filtroContainer}>
+            <h3>Filtrar Pets</h3>
+            <form className={styles.filterForm}>
+              <label>
+                Porte:
+                <Dropdown
+                  name="porte"
+                  value={filters.porte}
+                  placeholder="Todos"
+                  onChange={handleDropdownChange}
+                  options={[
+                    { value: "Pequeno", label: "Pequeno" },
+                    { value: "Médio", label: "Médio" },
+                    { value: "Grande", label: "Grande" },
+                  ]}
+                />
+              </label>
 
-          <label>
-            Idade:
-            <input
-              type="number"
-              name="idade"
-              value={filters.idade}
-              onChange={handleFilterChange}
-              placeholder="Idade"
-            />
-          </label>
+              <label>
+                Idade:
+                <input
+                  type="number"
+                  name="idade"
+                  value={filters.idade}
+                  onChange={handleFilterChange}
+                  placeholder="Idade"
+                  min="0"
+                />
+              </label>
 
-          <label>
-            Espécie:
-            <select
-              name="especie"
-              value={filters.especie}
-              onChange={handleFilterChange}
-            >
-              <option value="">Selecione</option>
-              <option value="Cachorro">Cachorro</option>
-              <option value="Gato">Gato</option>
-            </select>
-          </label>
-        </form>
-      </div>
+              <label>
+                Espécie:
+                <Dropdown
+                  name="especie"
+                  value={filters.especie}
+                  placeholder="Todas"
+                  onChange={handleDropdownChange}
+                  options={[
+                    { value: "Cachorro", label: "Cachorro" },
+                    { value: "Gato", label: "Gato" },
+                  ]}
+                />
+              </label>
+            </form>
+          </aside>
 
-      {/* Lista de Pets */}
-      <h2>Pets Disponíveis para Adoção</h2>
-      <div className={styles.petsContainer}>
-        <ul>
-          {pets.map((pet) => (
-            <li key={pet.id} className={styles.petCard}>
-              <img
-                src={pet.foto || "https://via.placeholder.com/150"}
-                alt={pet.nome}
-                className={styles.petImage}
-              />
-              <div className={styles.petInfo}>
-                <h3>{pet.nome}</h3>
-                <p>Raça: {pet.raca}</p>
-                <p>Porte: {pet.porte}</p>
-                <p>Idade: {pet.idade} anos</p>
-                <button>Quero Adotar</button>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+          <section className={styles.petsSection}>
+            <h2 className={styles.sectionTitle}>Pets Disponíveis para Adoção</h2>
+            <ul className={styles.petsList}>
+              {pets.map((pet) => (
+                <li key={pet.id} className={styles.petCard}>
+                  <img
+                    src={pet.foto || "https://via.placeholder.com/150"}
+                    alt={pet.nome}
+                    className={styles.petImage}
+                  />
+                  <div className={styles.petInfo}>
+                    <h3>{pet.nome}</h3>
+                    <p>Espécie: {pet.especie}</p>
+                    <p>Porte: {pet.porte}</p>
+                    <p>
+                      Idade: {pet.idade} {pet.idade > 1 ? "anos" : "ano"}
+                    </p>
+                    <button type="button">Quero Adotar</button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </div>
+      </main>
     </div>
   );
 }
