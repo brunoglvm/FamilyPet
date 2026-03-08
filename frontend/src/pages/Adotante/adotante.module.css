@@ -23,7 +23,9 @@
 .form {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 2rem;
+  width: min(980px, 100%);
 }
 
 .formImage {
@@ -31,9 +33,36 @@
   height: auto;
 }
 
+@media screen and (max-width: 1024px) {
+  .form {
+    gap: 1.5rem;
+  }
+
+  .formImage {
+    max-width: 340px;
+  }
+}
+
 @media screen and (max-width: 768px) {
+  .adotanteMain {
+    padding: 0 1rem 2rem;
+  }
+
   .adotanteMain h1 {
     font-size: 1.75rem;
     line-height: 2.1rem;
+    padding: 1.5rem 0 1rem;
+    margin-top: 4.75rem;
+  }
+
+  .form {
+    flex-direction: column-reverse;
+    width: min(560px, 100%);
+    gap: 1rem;
+  }
+
+  .formImage {
+    width: min(300px, 100%);
+    max-width: none;
   }
 }

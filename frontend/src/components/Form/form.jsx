@@ -1,4 +1,5 @@
 import { useState } from "react";
+import InputMask from "react-input-mask";
 import styles from "./form.module.css";
 
 export function Form() {
@@ -20,15 +21,22 @@ export function Form() {
     }
     setNomeError(""); // Limpar mensagem de erro do nome
 
-    // Verificar se o telefone contém apenas números
-    const telefoneRegex = /^\d+$/;
-    if (!telefoneRegex.test(telefone)) {
-      setTelefoneError("O telefone deve conter apenas números.");
+    const telefoneSomenteNumeros = telefone.replace(/\D/g, "");
+    if (
+      telefoneSomenteNumeros.length < 10 ||
+      telefoneSomenteNumeros.length > 11
+    ) {
+      setTelefoneError("Digite um telefone válido com DDD.");
       return;
     }
     setTelefoneError("");
 
-    console.log({ nome, email, telefone, endereco });
+    console.log({
+      nome,
+      email,
+      telefone: telefoneSomenteNumeros,
+      endereco,
+    });
   };
 
   const handleNomeChange = (e) => {
@@ -38,9 +46,10 @@ export function Form() {
   };
 
   const handleTelefoneChange = (e) => {
-    // Permitir apenas números no campo de telefone
-    const value = e.target.value.replace(/\D/g, "");
-    setTelefone(value);
+    setTelefone(e.target.value);
+    if (telefoneError) {
+      setTelefoneError("");
+    }
   };
 
   return (
@@ -56,7 +65,7 @@ export function Form() {
           onChange={handleNomeChange}
           required
         />
-        {nomeError && <span style={{ color: "red" }}>{nomeError}</span>}
+        {nomeError && <span className={styles.errorText}>{nomeError}</span>}
       </div>
 
       <div className={styles.formGroup}>
@@ -74,16 +83,25 @@ export function Form() {
 
       <div className={styles.formGroup}>
         <label htmlFor="phone">Telefone</label>
-        <input
-          type="tel"
-          name="phone"
-          id="phone"
-          placeholder="Digite seu telefone"
+        <InputMask
+          mask="(99) 99999-9999"
           value={telefone}
           onChange={handleTelefoneChange}
-          required
-        />
-        {telefoneError && <span style={{ color: "red" }}>{telefoneError}</span>}
+        >
+          {(inputProps) => (
+            <input
+              {...inputProps}
+              type="tel"
+              name="phone"
+              id="phone"
+              placeholder="(11) 91234-5678"
+              required
+            />
+          )}
+        </InputMask>
+        {telefoneError && (
+          <span className={styles.errorText}>{telefoneError}</span>
+        )}
       </div>
 
       <div className={styles.formGroup}>
