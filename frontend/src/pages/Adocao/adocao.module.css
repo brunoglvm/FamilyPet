@@ -47,17 +47,6 @@
   padding: 0.8rem;
 }
 
-.filtroContainer input[type="number"] {
-  -moz-appearance: textfield;
-  appearance: textfield;
-}
-
-.filtroContainer input[type="number"]::-webkit-outer-spin-button,
-.filtroContainer input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
 .petsSection {
   min-width: 0;
   margin-left: 20rem;

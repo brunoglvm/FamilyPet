@@ -12,6 +12,10 @@ const navItems = [
   { to: "/adotante", label: "Cadastre-se" },
 ];
 
+const mobileMoreItems = navItems.filter(
+  (item) => item.to !== "/" && item.to !== "/adocao",
+);
+
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navRef = useRef(null);
@@ -86,7 +90,7 @@ export function Header() {
           id="main-navigation"
           className={`${styles.mobileNavList} ${isMenuOpen ? styles.mobileNavListOpen : ""}`}
         >
-          {navItems.map((item) => (
+          {mobileMoreItems.map((item) => (
             <li key={`mobile-${item.to}`}>
               <Link to={item.to} onClick={closeMenu}>
                 {item.label}
