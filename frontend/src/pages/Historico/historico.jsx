@@ -63,43 +63,30 @@ function Historico() {
     },
   ];
 
-  // Calcula o número ideal de colunas (3 ou 4, por exemplo)
-  const columnCount =
-    adotados.length <= 6 ? 3 : Math.ceil(Math.sqrt(adotados.length));
-
-  const gridStyle = {
-    display: "grid",
-    gridTemplateColumns: `repeat(${columnCount}, 1fr)`,
-    gap: "5rem 2rem",
-    padding: "4rem 15rem",
-    justifyItems: "center",
-    width: "100%",
-    maxWidth: "100%",
-    marginLeft: "0rem",
-  };
-
   return (
-    <div className={styles.historicoMain}>
+    <div className={styles.page}>
       <Header />
-      <h1>Conheça alguns dos nossos animais adotados</h1>
-      <div style={gridStyle} className={styles.petsContainer}>
-        {adotados.map((adotado) => (
-          <div key={adotado.id} className={styles.petCard}>
-            <img
-              src={adotado.foto}
-              alt={adotado.nome}
-              className={styles.petImage}
-            />
-            <div className={styles.petInfo}>
-              <h3>{adotado.nome}</h3>
-              <p>Especie: {adotado.especie}</p>
-              <p>Sexo: {adotado.sexo}</p>
-              <p>Idade: {adotado.idade} anos</p>
-              <p className="data-adocao">Data da Adoção: {adotado.data} </p>
+      <main className={styles.mainContent}>
+        <h1 className={styles.pageTitle}>Conheça alguns dos nossos animais adotados</h1>
+        <div className={styles.petsContainer}>
+          {adotados.map((adotado) => (
+            <div key={adotado.id} className={styles.petCard}>
+              <img
+                src={adotado.foto}
+                alt={adotado.nome}
+                className={styles.petImage}
+              />
+              <div className={styles.petInfo}>
+                <h3>{adotado.nome}</h3>
+                <p>Espécie: {adotado.especie}</p>
+                <p>Sexo: {adotado.sexo}</p>
+                <p>Idade: {adotado.idade} anos</p>
+                <p>Data da Adoção: {adotado.data}</p>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </main>
     </div>
   );
 }

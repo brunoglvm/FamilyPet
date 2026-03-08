@@ -13,6 +13,8 @@
 }
 
 .adotanteMain h1 {
+  font-size: 2rem;
+  line-height: 2.4rem;
   color: var(--dark-color);
   padding: 2rem;
   margin-top: 4rem;
@@ -27,4 +29,11 @@
 .formImage {
   max-width: 400px;
   height: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .adotanteMain h1 {
+    font-size: 1.75rem;
+    line-height: 2.1rem;
+  }
 }

@@ -27,6 +27,8 @@
 }
 
 .petFormTitle {
+  font-size: 2rem;
+  line-height: 2.4rem;
   color: var(--dark-color);
   margin-bottom: 1rem;
 }
@@ -145,6 +147,11 @@
     box-shadow: none;
     border-radius: 0;
     padding: 0;
+  }
+
+  .petFormTitle {
+    font-size: 1.75rem;
+    line-height: 2.1rem;
   }
 
   .animaisGrid {

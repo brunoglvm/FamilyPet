@@ -1,31 +1,39 @@
-.historicoMain h1 {
+.page {
+  min-height: 100vh;
+}
+
+.mainContent {
+  width: min(1200px, 100% - 2.5rem);
+  margin-inline: auto;
+  padding: calc(clamp(2rem, 4vw, 3rem) + 4.5rem) 0 clamp(2rem, 4vw, 3rem);
+}
+
+.pageTitle {
+  font-size: 2rem;
+  line-height: 2.4rem;
   color: var(--dark-color);
-  padding: 2rem;
-  margin-top: 4rem;
+  margin-bottom: 2rem;
 }
 
 .petsContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 4rem 2rem;
-  max-width: 80%;
-  width: 100%;
-  justify-items: center;
-  margin: 7rem 0 3.5rem 20rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
 }
 
 .petCard {
+  justify-self: center;
   background-color: var(--card-color);
   border-radius: 8px;
   box-shadow: 0 4px 8px var(--shadow-color);
   overflow: hidden;
-  width: 20rem;
+  width: min(20rem, 100%);
   text-align: center;
   transition: transform 0.3s ease;
+}
 
-  &:hover {
-    transform: translateY(-5px);
-  }
+.petCard:hover {
+  transform: translateY(-5px);
 }
 
 .petImage {
@@ -49,6 +57,25 @@
   font-size: 1rem;
 }
 
-.petInfo button {
-  margin-top: 1rem;
+@media screen and (max-width: 768px) {
+  .mainContent {
+    width: min(1200px, 100% - 2rem);
+    padding-top: calc(clamp(2rem, 4vw, 3rem) + 5rem);
+  }
+
+  .pageTitle {
+    font-size: 1.75rem;
+    line-height: 2.1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .mainContent {
+    width: 100%;
+    padding: calc(clamp(2rem, 4vw, 3rem) + 5rem) 1rem clamp(2rem, 4vw, 3rem);
+  }
+
+  .petsContainer {
+    grid-template-columns: 1fr;
+  }
 }
