@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./adocao.module.css";
 
+import { PageTitle } from "@/components/PageTitle/page-title";
 import { Header } from "@/components/Header/header";
 import { Dropdown } from "@/components/Dropdown/dropdown";
 import { petsData } from "@/data";
@@ -51,6 +52,7 @@ function Adocao() {
 
   return (
     <div className={styles.page}>
+      <PageTitle title="Adoção" />
       <Header />
       <main className={styles.mainContent}>
         <div className={styles.contentGrid}>
@@ -101,7 +103,9 @@ function Adocao() {
           </aside>
 
           <section className={styles.petsSection}>
-            <h2 className={styles.sectionTitle}>Pets Disponíveis para Adoção</h2>
+            <h2 className={styles.sectionTitle}>
+              Pets Disponíveis para Adoção
+            </h2>
             <ul className={styles.petsList}>
               {pets.map((pet) => (
                 <li key={pet.id} className={styles.petCard}>

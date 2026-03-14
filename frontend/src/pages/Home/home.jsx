@@ -4,6 +4,7 @@ import styles from "./home.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStarOfLife } from "@fortawesome/free-solid-svg-icons";
 
+import { PageTitle } from "@/components/PageTitle/page-title";
 import { Header } from "@/components/Header/header";
 import { Footer } from "@/components/Footer/footer";
 import { Card } from "@/components/Card/card";
@@ -87,6 +88,7 @@ function Home() {
   return (
     <div className={styles.page}>
       <Header />
+      <PageTitle />
       <main className={styles.mainContent}>
         {/* Banner */}
         <section className={styles.banner}>

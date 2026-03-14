@@ -3,6 +3,7 @@ import styles from "./historico.module.css";
 import dogImage from "@/assets/card/cachorro.jpg";
 import catImage from "@/assets/card/gato.jpg";
 
+import { PageTitle } from "@/components/PageTitle/page-title";
 import { Header } from "@/components/Header/header";
 
 function Historico() {
@@ -66,8 +67,11 @@ function Historico() {
   return (
     <div className={styles.page}>
       <Header />
+      <PageTitle title="Histórico" />
       <main className={styles.mainContent}>
-        <h1 className={styles.pageTitle}>Conheça alguns dos nossos animais adotados</h1>
+        <h1 className={styles.pageTitle}>
+          Conheça alguns dos nossos animais adotados
+        </h1>
         <div className={styles.petsContainer}>
           {adotados.map((adotado) => (
             <div key={adotado.id} className={styles.petCard}>

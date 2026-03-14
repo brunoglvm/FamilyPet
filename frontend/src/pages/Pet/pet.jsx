@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import styles from "./pet.module.css";
 
+import { PageTitle } from "@/components/PageTitle/page-title";
 import { Header } from "@/components/Header/header";
 import { RouteBtn } from "@/components/RouteBtn/route-btn";
 
@@ -92,6 +93,7 @@ function Pet({ onAddPet = () => {}, pets = [] }) {
 
   return (
     <div className={styles.petPage}>
+      <PageTitle title="Cadastro de Pet" />
       <Header />
       <main className={styles.mainContent}>
         <section className={styles.formSection}>
@@ -182,7 +184,11 @@ function Pet({ onAddPet = () => {}, pets = [] }) {
             {previewUrl && (
               <div className={styles.previewGroup}>
                 <h3 className={styles.photoTitle}>Pré-visualização</h3>
-                <img className={styles.petPhoto} src={previewUrl} alt="Preview do pet" />
+                <img
+                  className={styles.petPhoto}
+                  src={previewUrl}
+                  alt="Preview do pet"
+                />
               </div>
             )}
 
@@ -193,7 +199,9 @@ function Pet({ onAddPet = () => {}, pets = [] }) {
         </section>
 
         <section className={styles.animaisDisponiveis}>
-          <h2 className={styles.sectionTitle}>Animais Disponíveis para Adoção</h2>
+          <h2 className={styles.sectionTitle}>
+            Animais Disponíveis para Adoção
+          </h2>
           <div className={styles.animaisGrid}>
             {petsDisponiveis.length > 0 ? (
               petsDisponiveis.map((pet) => (
